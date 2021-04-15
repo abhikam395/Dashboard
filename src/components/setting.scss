@@ -1,0 +1,23 @@
+.setting{
+    border-radius: 50%;
+    position: fixed;
+    bottom: 0;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &--size{
+        height: 45px;
+        width: 45px;
+    }
+
+    &--theme{
+        background-color: #2D53FE;
+    }
+
+    &__icon{
+        color: white;
+    }
+}

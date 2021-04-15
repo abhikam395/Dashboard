@@ -1,0 +1,90 @@
+.sidebarsection{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 7px #F4F5F7;
+
+    &--size{
+        height: 100vh;
+        width: 350px;
+    }
+
+    // &--theme{
+
+    // }
+
+    &__icon{
+        width: 26px;
+        margin: 0px 8px;
+    }
+
+    &__head{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 15px;
+        height: 60px;
+    }
+
+    &__title{
+        font-size: 16px;
+        line-height: 25px;
+        color: #3d5170;
+    }
+
+    &__options{
+        list-style: none;
+        text-align: start;
+        width: 100%;
+        padding: 0px;
+    }
+
+    &__option{
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        color: rgba($color: grey, $alpha: 0.7);
+        border-top: 1px solid #E1E5EB;
+
+        &:is(:last-child){
+            border-bottom: 1px solid #E1E5EB;
+        }
+
+        &:hover{
+            color: #197DE8;
+            background-color: #E1E5EB;
+        }
+
+        &--size{
+            height: 50px;
+            width: 100%;
+        }
+
+        &-icon{
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+
+        &-name{
+            font-size: 13px;
+            font-weight: 400;
+            color: inherit;
+        }
+    }
+
+    &__box{
+        width: 4px;
+        height: 100%;
+        background-color: #197DE8;
+        visibility: hidden;
+    }
+}
+
+.item-active{
+    color: #197DE8;
+}
+
+.box-hover{
+    visibility: visible;
+    color: #197DE8;
+}
