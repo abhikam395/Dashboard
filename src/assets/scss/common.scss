@@ -1,0 +1,29 @@
+.container{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 30px;
+
+    &--size{
+        min-height: calc(100vh - 60px);
+    }
+
+    &--theme{
+        background-color: #F5F6F8;
+    }
+
+    &__title{
+        margin-top: 5px;
+        font-weight: 500;
+        color: #3C5170;
+        font-size: 24px;
+    }
+
+    &__category{
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        font-weight: 500;
+        color: grey;
+    }
+}

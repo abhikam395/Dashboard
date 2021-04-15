@@ -20,11 +20,31 @@ export default function router(){
                     category="DASHBOARD" 
                     title="Blog Overview"/>}
                 />
-            <Route path="/blog-posts" component={BlogPostPage} />
-            <Route path="/new-post" component={AddNewPostPage} />
-            <Route path="/form-components" component={FormComponentPage} />
-            <Route path="/tables" component={TablesPage} />
-            <Route path="/user-profile" component={UserProfilePage} />
+            <Route  path="/blog-posts" 
+                    render={() => <BlogPostPage 
+                    category="COMPONENTS" 
+                    title="Blog Posts"/>}
+                />
+            <Route  path="/new-post" 
+                    render={() => <AddNewPostPage 
+                    category="BLOG POSTS" 
+                    title="Add New Post"/>}
+                />
+            <Route path="/form-components" 
+                    render={() => <FormComponentPage 
+                    category="OVERVIEW" 
+                    title="Forms & Components"/>}
+                />
+            <Route path="/tables" 
+                    render={() => <TablesPage 
+                    category="OVERVIEW" 
+                    title="Data Tables"/>}
+                />
+            <Route path="/user-profile" 
+                    render={() => <UserProfilePage 
+                    category="OVERVIEW" 
+                    title="User Profile"/>}
+                />
             <Route path="/errors" component={ErrorsPage} />
         </Switch>
     )

@@ -18,49 +18,67 @@ class SidebarSection extends Component{
         this.state = {
             url: 'https://designrevision.com/demo/shards-dashboard-lite/images/shards-dashboards-logo.svg',
             options: [
-                {id: 1, name: 'Blog Dashboard', icon: HiPencil, link: '/', category: 'DASHBOARD', title: 'Blog Overview'},
-                {id: 2, name: 'Blog Posts', icon: RiFileList2Fill, link: '/blog-posts', category: 'COMPONENTS', title: 'Blog Posts'},
-                {id: 3, name: 'Add New Post', icon: AiFillFileAdd, link: '/new-post', category: 'BLOG POSTS', title: 'Add New Post'},
-                {id: 4, name: 'Forms & Components', icon: CgComponents, link: '/form-components', category: 'OVERVIEW', title: 'Forms & Components'},
-                {id: 5, name: 'Tables', icon: RiTableFill, link: '/tables', category: 'OVERVIEW', title: 'Data Tables'},
-                {id: 6, name: 'User Profile', icon: ImUser, link: '/user-profile', category: 'OVERVIEW', title: 'User Profile'},
-                {id: 7, name: 'Errors', icon: RiErrorWarningFill, link: '/errors', category: null, title: null},
+                {id: 1, name: 'Blog Dashboard', icon: HiPencil, link: '/'},
+                {id: 2, name: 'Blog Posts', icon: RiFileList2Fill, link: '/blog-posts'},
+                {id: 3, name: 'Add New Post', icon: AiFillFileAdd, link: '/new-post'},
+                {id: 4, name: 'Forms & Components', icon: CgComponents, link: '/form-components'},
+                {id: 5, name: 'Tables', icon: RiTableFill, link: '/tables', category: 'OVERVIEW'},
+                {id: 6, name: 'User Profile', icon: ImUser, link: '/user-profile'},
+                {id: 7, name: 'Errors', icon: RiErrorWarningFill, link: '/errors'},
             ],
-            previousHoveredItem: {
-                element: null,
-                id: null
-            },
+            previousHoveredItemId: 0
         }
     }
 
     componentDidMount(){
         let element = document.getElementsByClassName('sidebarsection__option')[0];
-        element.style.color = '#197DE8';
+        element.classList.add('item-active');
         
         let box = document.getElementsByClassName('sidebarsection__box')[0];
         box.classList.add('box-hover');
 
-        this.setState({previousHoveredItem: {element: element, id: 0}})
+        this.setState({previousHoveredItemId: 0})
     }
 
     mouseEnter(id){
-        let {previousHoveredItem} = this.state;
-        if(id === previousHoveredItem.id)  return;
+        let {previousHoveredItemId} = this.state;
+        if(id === previousHoveredItemId)  return;
         
+        let itemElement = document.getElementsByClassName('sidebarsection__option')[id];
+        itemElement.classList.add('item-active')
+
         let element = document.getElementsByClassName('sidebarsection__box')[id];
         element.classList.add('box-hover');
     }
 
     mouseLeave(id){
-        let {previousHoveredItem} = this.state;
-        if(id === previousHoveredItem.id)  return;
+        let {previousHoveredItemId} = this.state;
+        if(id === previousHoveredItemId)  return;
+
+        let itemElement = document.getElementsByClassName('sidebarsection__option')[id];
+        itemElement.classList.remove('item-active')
 
         let element = document.getElementsByClassName('sidebarsection__box')[id];
         element.classList.remove('box-hover');
     }
 
-    onItemSelected(){
+    onItemSelected(id){
+        let {previousHoveredItemId} = this.state;
 
+        let previousHoveredItem = 
+            document.getElementsByClassName('sidebarsection__option')[previousHoveredItemId];
+        previousHoveredItem.classList.remove('item-active');
+ 
+        let element = document.getElementsByClassName('sidebarsection__box')[previousHoveredItemId];
+        element.classList.remove('box-hover');
+
+        let currentElement = document.getElementsByClassName('sidebarsection__option')[id];
+        currentElement.classList.add('item-active');
+
+        let currentBoxElement = document.getElementsByClassName('sidebarsection__box')[id];
+        currentBoxElement.classList.add('box-hover');
+
+        this.setState({previousHoveredItemId: id});
     }
 
     renderList(lists){
@@ -68,12 +86,10 @@ class SidebarSection extends Component{
             let Icon = item.icon;
             return (
                 <Link 
-                    to={{
-                        pathname: item.link,
-                        param: 'He'
-                    }}
+                    to={item.link}
                     onMouseEnter={() => this.mouseEnter(item.id - 1)}
                     onMouseLeave={() => this.mouseLeave(item.id - 1)}
+                    onClick={this.onItemSelected.bind(this, item.id - 1)}
                     key={item.id}
                     className="
                         sidebarsection__option 
