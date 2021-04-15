@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './main.scss';
 
 import NavbarComponent from './../components/NavbarComponent';
-import ContentSection from './ContentSection';
+import Router from './../helpers/router';
 
 export default class MainSection extends Component{
     render(){
@@ -12,7 +12,7 @@ export default class MainSection extends Component{
                 mainsection--size 
                 mainsection--theme">
                 <NavbarComponent />
-                <ContentSection />
+                <Router />
             </aside>
         )
     }

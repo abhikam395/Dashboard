@@ -26,4 +26,11 @@
         font-weight: 500;
         color: grey;
     }
+
+    &__row{
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
 }
