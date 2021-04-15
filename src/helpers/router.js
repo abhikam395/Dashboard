@@ -14,7 +14,12 @@ import UserProfilePage from './../pages/UserProfilePage';
 export default function router(){
     return (
         <Switch>
-            <Route exact path="/" component={BlogDashboardPage} />
+            <Route 
+                exact path="/" 
+                render={() => <BlogDashboardPage 
+                    category="DASHBOARD" 
+                    title="Blog Overview"/>}
+                />
             <Route path="/blog-posts" component={BlogPostPage} />
             <Route path="/new-post" component={AddNewPostPage} />
             <Route path="/form-components" component={FormComponentPage} />

@@ -18,13 +18,13 @@ class SidebarSection extends Component{
         this.state = {
             url: 'https://designrevision.com/demo/shards-dashboard-lite/images/shards-dashboards-logo.svg',
             options: [
-                {id: 1, name: 'Blog Dashboard', icon: HiPencil, link: '/'},
-                {id: 2, name: 'Blog Posts', icon: RiFileList2Fill, link: '/blog-posts'},
-                {id: 3, name: 'Add New Post', icon: AiFillFileAdd, link: '/new-post'},
-                {id: 4, name: 'Forms & Components', icon: CgComponents, link: '/form-components'},
-                {id: 5, name: 'Tables', icon: RiTableFill, link: '/tables'},
-                {id: 6, name: 'User Profile', icon: ImUser, link: '/user-profile'},
-                {id: 7, name: 'Errors', icon: RiErrorWarningFill, link: '/errors'},
+                {id: 1, name: 'Blog Dashboard', icon: HiPencil, link: '/', category: 'DASHBOARD', title: 'Blog Overview'},
+                {id: 2, name: 'Blog Posts', icon: RiFileList2Fill, link: '/blog-posts', category: 'COMPONENTS', title: 'Blog Posts'},
+                {id: 3, name: 'Add New Post', icon: AiFillFileAdd, link: '/new-post', category: 'BLOG POSTS', title: 'Add New Post'},
+                {id: 4, name: 'Forms & Components', icon: CgComponents, link: '/form-components', category: 'OVERVIEW', title: 'Forms & Components'},
+                {id: 5, name: 'Tables', icon: RiTableFill, link: '/tables', category: 'OVERVIEW', title: 'Data Tables'},
+                {id: 6, name: 'User Profile', icon: ImUser, link: '/user-profile', category: 'OVERVIEW', title: 'User Profile'},
+                {id: 7, name: 'Errors', icon: RiErrorWarningFill, link: '/errors', category: null, title: null},
             ],
             previousHoveredItem: {
                 element: null,
@@ -68,7 +68,10 @@ class SidebarSection extends Component{
             let Icon = item.icon;
             return (
                 <Link 
-                    to={item.link}
+                    to={{
+                        pathname: item.link,
+                        param: 'He'
+                    }}
                     onMouseEnter={() => this.mouseEnter(item.id - 1)}
                     onMouseLeave={() => this.mouseLeave(item.id - 1)}
                     key={item.id}
