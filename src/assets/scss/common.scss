@@ -27,10 +27,11 @@
         color: grey;
     }
 
-    &__row{
+    &__graphs{
         display: flex;
         margin-top: 10px;
         margin-bottom: 20px;
         flex-wrap: wrap;
+        list-style: none;
     }
 }

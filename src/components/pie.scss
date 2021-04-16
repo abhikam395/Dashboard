@@ -1,3 +1,9 @@
 .pie{
-    
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    align-self: flex-end;
+    margin-top: 10px;
 }
