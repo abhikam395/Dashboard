@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './blogdashboard.scss';
 
 import {RiArrowDownSFill, RiArrowUpSFill} from 'react-icons/ri';
+import PieComponent from '../components/PieComponent';
 
 const DATA_COUNT = 12;
 const labels = [];
@@ -85,7 +86,7 @@ export default class BlogDashboardPage extends Component{
         for( var i = 1; i < arrayLen; i++ ){  
             context.lineTo( GRAPH_RIGHT / arrayLen * i + GRAPH_LEFT, ( GRAPH_HEIGHT - dataArr[ i ] / largest * GRAPH_HEIGHT ) + GRAPH_TOP );  
         }
-        context.fill();
+        // context.fill();
         // actually draw the graph  
         context.stroke();
     }
@@ -158,6 +159,7 @@ export default class BlogDashboardPage extends Component{
                         <canvas className="data__canvas" id="canvas" width="550" height="450"></canvas>
                     </div>
                 </div>
+                <PieComponent />
 
             </div>
         )

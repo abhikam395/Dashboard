@@ -1,0 +1,38 @@
+.settingcontent{
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    border-radius: 5px;
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    animation: movement .5s ease-out;
+
+    &--size{
+        width: 200px;
+        height: 300px;
+    }
+
+    &--theme{
+        background-color: #181A23;
+    }
+
+    &__close-icon{
+        align-self: flex-end;
+        margin: 10px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+@keyframes movement{
+
+    0%{
+        left: 0px;
+    }
+
+    100%{
+        left: 30px;
+    }
+}

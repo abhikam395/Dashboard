@@ -13,8 +13,8 @@ import {Link, withRouter} from 'react-router-dom';
 
 class SidebarSection extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             url: 'https://designrevision.com/demo/shards-dashboard-lite/images/shards-dashboards-logo.svg',
             options: [
@@ -26,20 +26,33 @@ class SidebarSection extends Component{
                 {id: 6, name: 'User Profile', icon: ImUser, link: '/user-profile'},
                 {id: 7, name: 'Errors', icon: RiErrorWarningFill, link: '/errors'},
             ],
-            previousHoveredItemId: 0
+            previousHoveredItemId: 0,
+            currentRoute: null
         }
     }
 
     componentDidMount(){
-        let element = document.getElementsByClassName('sidebarsection__option')[0];
+        let currentRoute = this.findCurrentRoute();
+        this.setState({currentRoute: currentRoute})
+
+        let element = document.getElementsByClassName('sidebarsection__option')[currentRoute.id - 1];
         element.classList.add('item-active');
         
-        let box = document.getElementsByClassName('sidebarsection__box')[0];
+        let box = document.getElementsByClassName('sidebarsection__box')[currentRoute.id - 1];
         box.classList.add('box-hover');
 
         this.setState({previousHoveredItemId: 0})
     }
 
+    findCurrentRoute(){
+        let {options} = this.state;
+        let {pathname} = this.props.location;
+
+        return options.filter(function(item){
+            return item.link === pathname;
+        })[0];
+    }
+    
     mouseEnter(id){
         let {previousHoveredItemId} = this.state;
         if(id === previousHoveredItemId)  return;
