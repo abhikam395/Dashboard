@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import './errorspage.scss';
+
+import {MdKeyboardBackspace} from 'react-icons/md';
 
 export default class ErrorsPage extends Component{
     render(){
@@ -10,9 +13,16 @@ export default class ErrorsPage extends Component{
                 container--size 
                 container--theme">
                 
-                {category && <h5 className="container__category">{category}</h5>}
-                {title && <h1 className="container__title">{title}</h1>}
+                <div className="error__container">
+                    <h1 className="error__code">500</h1>
+                    <h4 className="error__message">Something went wrong!</h4>
+                    <p className="error__description">There was a problem of our end. Please try again later.</p>
 
+                    <Link to="/#" className="error__button">
+                        <MdKeyboardBackspace className="error__icon"/>
+                        Go Back
+                        </Link>
+                </div>
             </div>
         )
     }
