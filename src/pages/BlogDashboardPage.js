@@ -4,6 +4,8 @@ import './blogdashboard.scss';
 import LineGraphComponent from '../components/LineGraphComponent';
 import PieComponent from '../components/PieComponent';
 
+import Chart from 'chart.js';
+
 export default class BlogDashboardPage extends Component{
     
     constructor(){
@@ -54,6 +56,54 @@ export default class BlogDashboardPage extends Component{
         }
     }
 
+    componentDidMount(){
+        this.renderUsesrGraph();
+    }
+
+    renderUsesrGraph(){
+        var canvas = document.getElementById( "users__canvas");  
+        if(canvas !== null){
+            let context = canvas.getContext("2d");
+            var myChart = new Chart(context, {
+                type: 'line',
+                data: {
+                    labels: [10, "", 20, "", 30, "", 40, "", 50, "", 60, "", 70],
+                    datasets: [
+                    {
+                        label: 'Current Month',
+                        data: [400, 500, 100, 1500, 200, 200, 500, 800, 400, 500, 200, 400, 1000],
+                        backgroundColor: '#E5F1FF',
+                        borderColor: 'rgb(75, 192, 192)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Past Month',
+                        data: [400, 500, 1000, 1500, 200, 2500, 500, 300, 4000, 2000, 200, 400, 3000],
+                        backgroundColor: '#E5DFF2',
+                        borderColor: 'rgb(75, 192, 192)',
+                        borderDash: [5,5],
+                        borderWidth: 2
+                    },
+                ]
+                },
+                options: {
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    hover: {
+                        mode: 'point'
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                        }
+                    },
+                }
+            })
+        }
+    }
+
     renderLineGraphs(list){
         return list.map(data => (
             <LineGraphComponent data={data} key={data.id}/>
@@ -75,6 +125,15 @@ export default class BlogDashboardPage extends Component{
                 <ul className="container__graphs">
                     {this.renderLineGraphs(dataList)}
                 </ul>
+                <div className="users">
+                    <div className="users__header">
+                        <h3 className="users__title">Users</h3>
+                    </div>
+                    <div className="users__box">
+                        
+                    </div>
+                    <canvas id="users__canvas"></canvas>
+                </div>
                 <PieComponent />
             </div>
         )

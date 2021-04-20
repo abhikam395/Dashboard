@@ -56,3 +56,33 @@
         // z-index: ;
     }
 }
+
+.users{
+    background-color: white;
+    border-radius: 10px;
+
+    &__header{
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__title{
+        font-weight: 400;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    &__box{
+        height: 50px;
+        background-color: #FBFBFB;
+        border-bottom: 1px solid #E1E5EB;
+        border-top: 1px solid #E1E5EB;
+    }
+}
+
+#users__canvas{
+    height: 600px;
+    max-width: 1000px;
+    background-color: white;
+}

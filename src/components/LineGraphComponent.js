@@ -12,11 +12,10 @@ export default class LineGraphComponent extends Component{
     }
 
     drawLine(id){  
-        let context = null; 
         let {data} = this.props;
         var canvas = document.getElementsByClassName( "data__canvas")[id];  
         if(canvas !== null){
-            context = canvas.getContext("2d");
+            let context = canvas.getContext("2d");
             var myChart = new Chart(context, {
                 type: 'line',
                 data: {
