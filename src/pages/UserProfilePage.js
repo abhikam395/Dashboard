@@ -4,6 +4,7 @@ import './userprofilepage.scss';
 import {FaUserPlus} from 'react-icons/fa';
 
 const imageUrl = "https://i.pinimg.com/564x/6f/de/85/6fde85b86c86526af5e99ce85f57432e.jpg";
+const description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?";
 
 export default class UserProfilePage extends Component{
     render(){
@@ -50,8 +51,51 @@ export default class UserProfilePage extends Component{
                             </p>
                         </div>
                     </div>
-                </div>
 
+                    <div className="
+                        userprofile__accountdetail 
+                        userprofile__accountdetail--size 
+                        userprofile__accountdetail--theme">
+
+                        <h3 className="userprofile__accountdetail-title">Account Details</h3>
+                        <hr className="userprofile__line"></hr>
+                        <div className="userprofile__accountdetail-container">
+                            <div className="userprofile__row">
+                                <label className="userprofile__label">First Name</label>
+                                <input defaultValue="Abhishek" className="userprofile__input" type="text" />
+                            </div>
+                            <div className="userprofile__row">
+                                <label className="userprofile__label">Last Name</label>
+                                <input defaultValue="Brooks" className="userprofile__input" type="text" />
+                            </div>
+                            <div className="userprofile__row">
+                                <label className="userprofile__label">Email</label>
+                                <input defaultValue="abhi@gmail.com" className="userprofile__input" type="email" />
+                            </div>
+                            <div className="userprofile__row">
+                                <label className="userprofile__label">Password</label>
+                                <input className="userprofile__input" type="password" />
+                            </div>
+                            <div className="userprofile__row">
+                                <label className="userprofile__label">City</label>
+                                <input className="userprofile__input" type="text" />
+                            </div>
+                            <div className="userprofile__row userprofile__state">
+                                <label className="userprofile__label">State</label>
+                                <input className="userprofile__input" type="drop" />
+                            </div>
+                            <div className="userprofile__row userprofile__zip">
+                                <label className="userprofile__label">Zip</label>
+                                <input className="userprofile__input" type="drop" />
+                            </div>
+                            <div className="userprofile__row">
+                                <label className="userprofile__label">Description</label>
+                                <textarea className="userprofile__textarea" defaultValue={description}/>
+                            </div>
+                        </div>
+                        <button className="userprofile__update-button">Update Account</button>
+                    </div>
+                </div>
             </div>
         )
     }

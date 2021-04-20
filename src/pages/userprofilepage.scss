@@ -3,10 +3,11 @@
     &__container{
         margin-top: 20px;
         display: flex;
+        // flex-wrap: wrap;
 
         &--size{
             width: 100%;
-            // height: 100px;
+            height: auto;
         }
     }
 
@@ -18,7 +19,7 @@
         align-items: center;
 
         &--size{
-            height: 500px;
+            min-height: 200px;
             width: 500px;
         }
 
@@ -130,6 +131,103 @@
                 -webkit-box-shadow: inset 5px 5px 5px lightgray;
                 box-shadow: inset 5px 5px 5px lightgray;
             }
+        }
+    }
+
+    &__accountdetail{
+        box-shadow: 2px 2px 10px 0px lightgray;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 10px;
+
+        &--size{
+            width: 100%;
+            min-height: 700px;
+            margin-left: 30px;
+        }
+
+        &--theme{
+            background-color: white;
+        }
+
+        &-title{
+            font-weight: 400;
+            font-size: 16px;
+            color: #4C5F7B;
+            padding: 20px;
+        }
+
+        &-container{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__line{
+        width: 100%;
+        border: none;
+        border-top: 1px solid #E1E5EB;
+    }
+
+    &__row{
+        min-width: 46%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px 20px;
+    }
+
+    &__input{
+        width: 100%;
+        margin: 10px 0;
+        padding: 9px;
+        border-radius: 5px;
+        outline: none;
+        border:  1px solid #B3BDCC;
+        font-size: 13px;
+
+        &:hover{
+            box-shadow: 5px 2px 5px lightblue;
+        }
+    }
+
+    &__label{
+        font-size: 15px;
+        font-weight: 400;
+        color: #636A71;
+    }
+
+    &__zip{
+        min-width: 10%;
+    }
+
+    &__state{
+        min-width: 23%;
+    }
+
+    &__textarea{
+        margin-top: 10px;
+        min-width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        color: #4C5F7B;
+    }
+
+    &__update-button{
+        margin-left: 20px;
+        margin-top: 30px;
+        border: none;
+        background-color: #007BFF;
+        color: white;
+        height: 34px;
+        font-size: 12px;
+        padding: 0px 15px;
+        cursor: pointer;
+
+        &:hover{
+            
         }
     }
 }
