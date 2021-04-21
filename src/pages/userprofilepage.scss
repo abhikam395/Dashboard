@@ -1,9 +1,41 @@
 .userprofile{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &--theme{
+        background-color: #F5F6F8;
+    }
+
+    &--size{
+        min-height: calc(100vh - 60px);
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 30px;
+    }
+
+    &__title{
+        margin-top: 5px;
+        font-weight: 500;
+        color: #3C5170;
+        font-size: 24px;
+    }
+
+    &__category{
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        font-weight: 500;
+        color: grey;
+    }
 
     &__container{
         margin-top: 20px;
         display: flex;
-        // flex-wrap: wrap;
 
         &--size{
             width: 100%;
@@ -225,9 +257,6 @@
         font-size: 12px;
         padding: 0px 15px;
         cursor: pointer;
-
-        &:hover{
-            
-        }
+        border-radius: 5px;
     }
 }

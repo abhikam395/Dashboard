@@ -1,0 +1,33 @@
+.footer{
+    border-top: 1px solid lightgray;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+    &--size{
+        height: 60px;
+        width: 100%;
+    }
+
+    &--theme{
+        background-color: #FFFFFF;
+    }
+
+    &__menus{
+        display: flex;
+        list-style: none;
+    }
+
+    &__menu{
+        text-decoration: none;
+        margin-right: 20px;
+        font-size: 13px;
+        color: #226CBD;
+    }
+
+    &__link{
+        text-decoration: inherit;
+        color: inherit;
+    }
+}
