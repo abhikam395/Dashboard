@@ -1,5 +1,5 @@
 .userprofile{
-    overflow-y: scroll;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -9,7 +9,7 @@
     }
 
     &--size{
-        min-height: calc(100vh - 60px);
+        // min-height: calc(100vh - 60px);
     }
 
     &__content{

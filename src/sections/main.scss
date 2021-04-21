@@ -3,14 +3,19 @@
 .mainsection{
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: scroll;
 
     &--size{
         min-height: 100vh;
+        height: auto;
         width: 100%;
     }
 
     &--theme{
 
+    }
+
+    &__content{
+        height: auto;
     }
 }

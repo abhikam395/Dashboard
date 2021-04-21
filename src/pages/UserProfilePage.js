@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './userprofilepage.scss';
 
 import {FaUserPlus} from 'react-icons/fa';
-import FooterComponent from '../components/FooterComponent';
 
 const imageUrl = "https://i.pinimg.com/564x/6f/de/85/6fde85b86c86526af5e99ce85f57432e.jpg";
 const description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?";
@@ -99,7 +98,6 @@ export default class UserProfilePage extends Component{
                         </div>
                     </div>
                 </div>
-                <FooterComponent />
             </div>
         )
     }
