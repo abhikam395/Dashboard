@@ -13,7 +13,7 @@ export default function FooterComponent(){
 
     function renderMenus(menus){
         return menus.map(menu => (
-            <li className="footer__menu">
+            <li className="footer__menu" key={menu.id}>
                 <a href={`/#${menu.name}`} className="footer__link">{menu.name}</a>
             </li>
         ))
